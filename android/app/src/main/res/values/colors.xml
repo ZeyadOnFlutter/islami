@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define custom colors -->
+    <color name="launch_background_color">#202020</color> <!-- Replace with your desired color -->
+    <!-- You can define other colors here as needed -->
+</resources>

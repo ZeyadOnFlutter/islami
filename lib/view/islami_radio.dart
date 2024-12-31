@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/view/radio_name.dart';
+import 'package:islami/widgets/radio_name.dart';
 import 'package:islami/widgets/functions.dart';
 import 'package:islami/widgets/widgets.dart';
 
@@ -33,87 +33,56 @@ class _IslamiRadioState extends State<IslamiRadio> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: getMediaQueryWidth(0.04651162790697675, context),
+      ),
+      child: Column(
         children: [
-          // Background Image
-          Positioned(
-            child: Image.asset(
-              'assets/quran.jpeg',
-              height: double.infinity,
-              fit: BoxFit.cover,
-            ),
+          SizedBox(
+            height: getMediaQueryHeight(0.02, context),
           ),
-          // Gradient Overlay
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromRGBO(32, 32, 32, 0.7),
-                    Color.fromRGBO(32, 32, 32, 1),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-            ),
+          getRadioType(onTap1, onTap2, isPressed1, isPressed2, context),
+          SizedBox(
+            height: getMediaQueryHeight(0.01, context),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: getMediaQueryHeight(0.04, context),
-            child: Container(
-              height: getMediaQueryHeight(0.9, context),
-              padding: EdgeInsets.symmetric(
-                  horizontal: getMediaQueryWidth(0.05, context)),
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/islamilogo.png',
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  height: getMediaQueryHeight(0.02, context),
+                );
+              },
+              itemCount: radioNames.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: index == radioNames.length - 1
+                      ? EdgeInsets.only(
+                          bottom: getMediaQueryHeight(0.02, context),
+                        )
+                      : EdgeInsets.zero,
+                  child: getRadio(
+                    isPressed1 == true ? radioNames[index] : reciters[index],
+                    () {
+                      setState(() {
+                        start[index] = !start[index];
+                      });
+                    },
+                    () {
+                      setState(() {
+                        mute[index] = !mute[index];
+                      });
+                    },
+                    start[index],
+                    mute[index],
+                    context,
                   ),
-                  SizedBox(
-                    height: getMediaQueryHeight(0.02, context),
-                  ),
-                  getRadioType(onTap1, onTap2, isPressed1, isPressed2, context),
-                  SizedBox(
-                    height: getMediaQueryHeight(0.01, context),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: radioNames.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: getMediaQueryHeight(0.02, context),
-                          ),
-                          child: getRadio(
-                            isPressed1 == true
-                                ? radioNames[index]
-                                : reciters[index],
-                            () {
-                              setState(() {
-                                start[index] = !start[index];
-                              });
-                            },
-                            () {
-                              setState(() {
-                                mute[index] = !mute[index];
-                              });
-                            },
-                            start[index],
-                            mute[index],
-                            context,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],
-      );
-
+      ),
+    );
   }
 }

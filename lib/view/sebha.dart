@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/model/app_theme.dart';
 import 'package:islami/widgets/functions.dart';
 
 class Sebha extends StatefulWidget {
@@ -38,119 +39,79 @@ class _SebhaState extends State<Sebha> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/sebha.jpeg',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
+    return Column(
+      children: [
+        SizedBox(
+          height: getMediaQueryHeight(0.018561484918793503, context),
+        ),
+        Text(
+          'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
+          style: TextStyle(
+            fontFamily: 'jannalt',
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+            fontSize: 36,
           ),
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromRGBO(32, 32, 32, 0.7),
-                    Color.fromRGBO(32, 32, 32, 1),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+        ),
+        SizedBox(
+          height: getMediaQueryHeight(0.1, context),
+        ),
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              top: getMediaQueryHeight(-0.09, context),
+              child: Padding(
+                padding:
+                    EdgeInsets.only(left: getMediaQueryWidth(0.1, context)),
+                child: Image.asset('assets/sebhahead.png'),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getMediaQueryWidth(0.03, context)),
+              child: InkWell(
+                onTap: onPressedSebha,
+                child: AnimatedRotation(
+                  alignment: Alignment.center,
+                  duration: Duration(milliseconds: 100),
+                  turns: rotationangle,
+                  child: Image.asset(
+                    'assets/sebhabody.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned.fill(
-            left: 0,
-            right: 0,
-            top: getMediaQueryHeight(0.04, context),
-            child: Column(
+            Column(
               children: [
-                Image.asset(
-                  'assets/islamilogo.png',
+                Text(
+                  azkar[azkarindex],
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontFamily: 'jannalt',
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.white,
+                  ),
                 ),
                 SizedBox(
-                  height: getMediaQueryHeight(0.02, context),
+                  height: getMediaQueryHeight(0.018561484918793503, context),
                 ),
                 Text(
-                  'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
+                  counter.toString(),
                   style: TextStyle(
-                    fontFamily: 'jannalt',
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
                     fontSize: 36,
+                    fontFamily: 'jannalt',
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.white,
                   ),
-                ),
-                SizedBox(
-                  height: getMediaQueryHeight(0.02, context),
                 ),
               ],
-            ),
-          ),
-          Positioned(
-            bottom: getMediaQueryHeight(0.05, context),
-            left: 0,
-            right: 0,
-            child: Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  top: getMediaQueryWidth(-0.18, context),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        left: getMediaQueryWidth(0.15, context)),
-                    child: Image.asset(
-                      'assets/sebhahead.png',
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: InkWell(
-                    onTap: onPressedSebha,
-                    child: AnimatedRotation(
-                      alignment: Alignment.center,
-                      duration: Duration(milliseconds: 100),
-                      turns: rotationangle,
-                      child: Image.asset(
-                        'assets/sebhabody.png',
-                        height: getMediaQueryHeight(0.4, context),
-                      ),
-                    ),
-                  ),
-                ),
-                Column(
-                  children: [
-                    Text(
-                      azkar[azkarindex],
-                      style: TextStyle(
-                        fontFamily: 'jannalt',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 36,
-                      ),
-                    ),
-                    SizedBox(
-                      height: getMediaQueryHeight(0.03, context),
-                    ),
-                    Text(
-                      counter.toString(),
-                      style: TextStyle(
-                        fontFamily: 'jannalt',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 36,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
+            )
+          ],
+        )
+      ],
     );
   }
 }

@@ -82,77 +82,80 @@ Widget getRadio(
   bool isPressed2,
   BuildContext context,
 ) {
-  return Stack(
-    alignment: Alignment.center,
-    children: [
-      Container(
-        padding: EdgeInsets.all(
-          15,
-        ),
-        height: getMediaQueryHeight(0.15, context),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Color(0xFFE2BE7F),
-          borderRadius: BorderRadius.circular(
-            20,
+  return SizedBox(
+    height: getMediaQueryHeight(0.15, context),
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          padding: EdgeInsets.all(
+            15,
           ),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: 'jannalt',
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: Colors.black,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-      isPressed1 == false
-          ? Positioned(
-              bottom: 0,
-              child: Image.asset('assets/mosque.png'),
-            )
-          : Positioned(
-              bottom: getMediaQueryHeight(-0.04, context),
-              child: Image.asset('assets/waves.png'),
+          height: getMediaQueryHeight(0.15, context),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Color(0xFFE2BE7F),
+            borderRadius: BorderRadius.circular(
+              20,
             ),
-      Positioned(
-        bottom: getMediaQueryHeight(0.02, context),
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: getMediaQueryWidth(0.14, context),
           ),
-          child: Row(
-            children: [
-              InkWell(
-                onTap: onTap1,
-                child: isPressed1 == false
-                    ? SvgPicture.asset(
-                        'assets/start.svg',
-                      )
-                    : SvgPicture.asset(
-                        'assets/pause.svg',
-                      ),
-              ),
-              SizedBox(
-                width: getMediaQueryWidth(0.05, context),
-              ),
-              InkWell(
-                onTap: onTap2,
-                child: isPressed2 == false
-                    ? SvgPicture.asset(
-                        'assets/sound.svg',
-                      )
-                    : SvgPicture.asset(
-                        'assets/mute.svg',
-                      ),
-              ),
-            ],
+          child: Text(
+            text,
+            style: TextStyle(
+              fontFamily: 'jannalt',
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
-      ),
-    ],
+        isPressed1 == false
+            ? Positioned(
+                bottom: 0,
+                child: Image.asset('assets/mosque.png'),
+              )
+            : Positioned(
+                bottom: getMediaQueryHeight(-0.04, context),
+                child: Image.asset('assets/waves.png'),
+              ),
+        Positioned(
+          bottom: getMediaQueryHeight(0.02, context),
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: getMediaQueryWidth(0.14, context),
+            ),
+            child: Row(
+              children: [
+                InkWell(
+                  onTap: onTap1,
+                  child: isPressed1 == false
+                      ? SvgPicture.asset(
+                          'assets/start.svg',
+                        )
+                      : SvgPicture.asset(
+                          'assets/pause.svg',
+                        ),
+                ),
+                SizedBox(
+                  width: getMediaQueryWidth(0.05, context),
+                ),
+                InkWell(
+                  onTap: onTap2,
+                  child: isPressed2 == false
+                      ? SvgPicture.asset(
+                          'assets/sound.svg',
+                        )
+                      : SvgPicture.asset(
+                          'assets/mute.svg',
+                        ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }
 

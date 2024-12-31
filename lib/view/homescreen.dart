@@ -5,6 +5,7 @@ import 'package:islami/view/islami_radio.dart';
 import 'package:islami/view/quran.dart';
 import 'package:islami/view/sebha.dart';
 import 'package:islami/view/time.dart';
+import 'package:islami/widgets/functions.dart';
 import 'package:islami/widgets/widgets.dart';
 
 class Homescreen extends StatefulWidget {
@@ -21,6 +22,13 @@ class _HomescreenState extends State<Homescreen> {
     Sebha(),
     IslamiRadio(),
     Time(),
+  ];
+  List<String> backgroundImages = [
+    'quranbackground',
+    'hadethbackground',
+    'sebhabackground',
+    'radiobackground',
+    'timebackground',
   ];
   int currentindex = 0;
   @override
@@ -96,7 +104,27 @@ class _HomescreenState extends State<Homescreen> {
           ),
         ],
       ),
-      body: mywidgets[currentindex],
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/${backgroundImages[currentindex]}.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: getMediaQueryHeight(0.03480278422273782, context),
+            ),
+            Image.asset(
+              'assets/islamilogo.png',
+            ),
+            Expanded(child: mywidgets[currentindex]),
+          ],
+        ),
+      ),
     );
   }
 }

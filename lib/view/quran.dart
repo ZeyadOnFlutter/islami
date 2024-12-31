@@ -5,6 +5,14 @@ class Quran extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/quranbackground.png',
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         IslamiRadio.routeName: (_) => IslamiRadio(),
         SliderScreen.routeName: (_) => SliderScreen(),
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: Homescreen.routeName,
     );
   }
 }

@@ -46,9 +46,9 @@ flutter_icons:
   min_sdk_android: 21
   ios: true
   remove_alpha_channel_ios: true
-  image_path: "assets/mosque1024x1024.png"
+  image_path: "assets/mosque512x512.png"
   adaptive_icon_background: "#202020" # Replace with your desired color (e.g., #FFFFFF for white, #000000 for black)
-  adaptive_icon_foreground: "assets/mosque1024x1024.png"
+  adaptive_icon_foreground: "assets/mosque512x512.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

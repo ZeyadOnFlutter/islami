@@ -26,6 +26,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       backgroundColor: AppTheme.black,
       appBar: AppBar(
         backgroundColor: AppTheme.black,
+        surfaceTintColor: AppTheme.black,
         title: Text(
           sura.englishName,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(

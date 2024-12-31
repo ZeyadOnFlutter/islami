@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/model/app_theme.dart';
 import 'package:islami/model/sura.dart';
+import 'package:islami/view/sura_details_screen.dart';
 import 'package:islami/widgets/functions.dart';
 
 class SuraItem extends StatelessWidget {
@@ -10,7 +11,14 @@ class SuraItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 7),
-      child: Ink(
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            SuraDetailsScreen.routeName,
+            arguments: sura,
+          );
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,7 +28,7 @@ class SuraItem extends StatelessWidget {
               height: getMediaQueryHeight(0.060324825986078885, context),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/suranum.png'),
+                  image: AssetImage('assets/images/suranum.png'),
                 ),
               ),
               child: Center(

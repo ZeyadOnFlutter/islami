@@ -53,50 +53,50 @@ class _HomescreenState extends State<Homescreen> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/quran.svg'),
+            icon: SvgPicture.asset('assets/images/quran.svg'),
             activeIcon: getIconContainer(
               child: SvgPicture.asset(
-                'assets/quran.svg',
+                'assets/images/quran.svg',
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
             label: 'Quran',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/hadith.svg'),
+            icon: SvgPicture.asset('assets/images/hadith.svg'),
             activeIcon: getIconContainer(
               child: SvgPicture.asset(
-                'assets/hadith.svg',
+                'assets/images/hadith.svg',
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
             label: 'hadith',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/necklace.svg'),
+            icon: SvgPicture.asset('assets/images/necklace.svg'),
             activeIcon: getIconContainer(
               child: SvgPicture.asset(
-                'assets/necklace.svg',
+                'assets/images/necklace.svg',
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
             label: 'Sebha',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/radio.svg'),
+            icon: SvgPicture.asset('assets/images/radio.svg'),
             activeIcon: getIconContainer(
               child: SvgPicture.asset(
-                'assets/radio.svg',
+                'assets/images/radio.svg',
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
             label: 'Radio',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/time.svg'),
+            icon: SvgPicture.asset('assets/images/time.svg'),
             activeIcon: getIconContainer(
               child: SvgPicture.asset(
-                'assets/time.svg',
+                'assets/images/time.svg',
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
@@ -109,7 +109,8 @@ class _HomescreenState extends State<Homescreen> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/${backgroundImages[currentindex]}.png'),
+            image: AssetImage(
+                'assets/images/${backgroundImages[currentindex]}.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -119,7 +120,7 @@ class _HomescreenState extends State<Homescreen> {
               height: getMediaQueryHeight(0.03480278422273782, context),
             ),
             Image.asset(
-              'assets/islamilogo.png',
+              'assets/images/islamilogo.png',
             ),
             Expanded(child: mywidgets[currentindex]),
           ],

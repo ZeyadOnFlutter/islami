@@ -113,11 +113,11 @@ Widget getRadio(
         isPressed1 == false
             ? Positioned(
                 bottom: 0,
-                child: Image.asset('assets/mosque.png'),
+                child: Image.asset('assets/images/images/mosque.png'),
               )
             : Positioned(
                 bottom: getMediaQueryHeight(-0.04, context),
-                child: Image.asset('assets/waves.png'),
+                child: Image.asset('assets/images/images/waves.png'),
               ),
         Positioned(
           bottom: getMediaQueryHeight(0.02, context),
@@ -131,10 +131,10 @@ Widget getRadio(
                   onTap: onTap1,
                   child: isPressed1 == false
                       ? SvgPicture.asset(
-                          'assets/start.svg',
+                          'assets/images/start.svg',
                         )
                       : SvgPicture.asset(
-                          'assets/pause.svg',
+                          'assets/images/pause.svg',
                         ),
                 ),
                 SizedBox(
@@ -144,10 +144,10 @@ Widget getRadio(
                   onTap: onTap2,
                   child: isPressed2 == false
                       ? SvgPicture.asset(
-                          'assets/sound.svg',
+                          'assets/images/sound.svg',
                         )
                       : SvgPicture.asset(
-                          'assets/mute.svg',
+                          'assets/images/mute.svg',
                         ),
                 ),
               ],
@@ -166,7 +166,7 @@ Widget getSliderItem(String path, BuildContext context, int index) {
     ),
     child: Column(
       children: [
-        Image.asset('assets/$path.png'),
+        Image.asset('assets/images/$path.png'),
         SizedBox(
           height: getMediaQueryHeight(0.03, context),
         ),

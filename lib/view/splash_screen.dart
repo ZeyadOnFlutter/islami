@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center,
         children: [
           Image.asset(
-            'assets/splash_background.png',
+            'assets/images/splash_background.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -39,35 +39,35 @@ class _SplashScreenState extends State<SplashScreen> {
           Positioned(
             top: getMediaQueryHeight(0.06115879828326181, context),
             child: Image.asset(
-              'assets/nonamemosque.png',
+              'assets/images/nonamemosque.png',
             ),
           ),
           Positioned(
             top: 0,
             right: getMediaQueryWidth(0.013948497854077253, context),
-            child: Image.asset('assets/lamp.png'),
+            child: Image.asset('assets/images/lamp.png'),
           ),
           Positioned(
             left: 0,
             top: getMediaQueryHeight(0.2296137339055794, context),
-            child: Image.asset('assets/mosqueshapeleft.png'),
+            child: Image.asset('assets/images/mosqueshapeleft.png'),
           ),
           Positioned(
             right: 0,
             bottom: getMediaQueryHeight(0.12017167381974248, context),
-            child: Image.asset('assets/mosqueshaperight.png'),
+            child: Image.asset('assets/images/mosqueshaperight.png'),
           ),
           Positioned(
             right: 0,
             bottom: getMediaQueryHeight(0.12017167381974248, context),
-            child: Image.asset('assets/mosqueshaperight.png'),
+            child: Image.asset('assets/images/mosqueshaperight.png'),
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
             spacing: getMediaQueryHeight(0.02, context),
             children: [
-              Image.asset('assets/islamishape.png'),
-              Image.asset('assets/islamitext.png'),
+              Image.asset('assets/images/islamishape.png'),
+              Image.asset('assets/images/islamitext.png'),
             ],
           ),
           Positioned(
@@ -76,8 +76,8 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisSize: MainAxisSize.min,
               spacing: getMediaQueryHeight(0.02, context),
               children: [
-                Image.asset('assets/routegold.png'),
-                Image.asset('assets/supervised.png'),
+                Image.asset('assets/images/routegold.png'),
+                Image.asset('assets/images/supervised.png'),
               ],
             ),
           ),

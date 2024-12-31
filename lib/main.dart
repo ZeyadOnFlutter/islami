@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         Homescreen.routeName: (_) => Homescreen(),
         SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
       },
-      initialRoute: SuraDetailsScreen.routeName,
+      initialRoute: Homescreen.routeName,
     );
   }
 }

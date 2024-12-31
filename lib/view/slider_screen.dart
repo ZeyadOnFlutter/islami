@@ -24,7 +24,7 @@ class _SliderScreenState extends State<SliderScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/islamilogo.png'),
+            Image.asset('assets/images/islamilogo.png'),
             Expanded(
               child: Center(
                 child: PageView.builder(

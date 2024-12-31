@@ -65,7 +65,7 @@ class _SebhaState extends State<Sebha> {
               child: Padding(
                 padding:
                     EdgeInsets.only(left: getMediaQueryWidth(0.1, context)),
-                child: Image.asset('assets/sebhahead.png'),
+                child: Image.asset('assets/images/sebhahead.png'),
               ),
             ),
             Padding(
@@ -78,7 +78,7 @@ class _SebhaState extends State<Sebha> {
                   duration: Duration(milliseconds: 100),
                   turns: rotationangle,
                   child: Image.asset(
-                    'assets/sebhabody.png',
+                    'assets/images/sebhabody.png',
                     fit: BoxFit.cover,
                   ),
                 ),

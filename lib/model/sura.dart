@@ -1,7 +1,7 @@
 class Sura {
   String englishName;
   String arabicName;
-  int verses;
+  String verses;
   int num;
 
   Sura({

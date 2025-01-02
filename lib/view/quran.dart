@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami/model/app_theme.dart';
 import 'package:islami/model/sura.dart';
 import 'package:islami/widgets/functions.dart';
+
+import 'package:islami/widgets/most_recently_section.dart';
 import 'package:islami/widgets/sura_item.dart';
 
 class Quran extends StatefulWidget {
@@ -360,6 +363,10 @@ class _QuranState extends State<Quran> {
     '5',
     '6'
   ];
+  List<int> searchlist = List.generate(
+    114,
+    (index) => index,
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -372,6 +379,48 @@ class _QuranState extends State<Quran> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          TextField(
+            cursorColor: AppTheme.primary,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: AppTheme.white,
+                ),
+            onChanged: (query) => onSearchSura(query),
+            decoration: InputDecoration(
+              hintText: 'Sura Name',
+              hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: AppTheme.white,
+                  ),
+              prefixIcon: SvgPicture.asset(
+                'assets/images/searchicon.svg',
+                fit: BoxFit.scaleDown,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: AppTheme.primary,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: AppTheme.primary,
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: AppTheme.primary,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: getMediaQueryHeight(0.02320185614849188, context),
+          ),
+          const Visibility(
+            visible: false,
+            child: MostRecentlySection(),
+          ),
           Text(
             'Suras List',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -380,28 +429,46 @@ class _QuranState extends State<Quran> {
           ),
           Expanded(
             child: ListView.separated(
+              // padding: EdgeInsets.zero,
+              itemCount: searchlist.length,
               itemBuilder: (context, index) {
-                return SuraItem(
-                  sura: Sura(
-                    arabicName: arabicAuranSuras[index],
-                    englishName: englishQuranSurahs[index],
-                    verses: int.parse(ayaNumber[index]),
-                    num: index + 1,
-                  ),
-                );
+                return searchlist.contains(index)
+                    ? SuraItem(
+                        sura: Sura(
+                          arabicName: arabicAuranSuras[index],
+                          englishName: englishQuranSurahs[index],
+                          verses: ayaNumber[index],
+                          num: index + 1,
+                        ),
+                      )
+                    : const SizedBox();
               },
               separatorBuilder: (context, index) {
-                return Divider(
-                  indent: getMediaQueryWidth(0.11, context),
-                  endIndent: getMediaQueryWidth(0.11, context),
-                  color: AppTheme.white,
-                );
+                return searchlist.contains(index)
+                    ? Divider(
+                        indent: getMediaQueryWidth(0.11, context),
+                        endIndent: getMediaQueryWidth(0.11, context),
+                        color: AppTheme.white,
+                      )
+                    : const SizedBox();
               },
-              itemCount: englishQuranSurahs.length,
             ),
           )
         ],
       ),
     );
+  }
+
+  void onSearchSura(String query) {
+    searchlist.clear();
+    setState(() {});
+    for (int i = 0; i < englishQuranSurahs.length; i++) {
+      if (arabicAuranSuras[i].contains(query) ||
+          englishQuranSurahs[i].toLowerCase().contains(query.toLowerCase())) {
+        searchlist.add(i);
+      }
+    }
+    print(searchlist);
+    print(searchlist.length);
   }
 }

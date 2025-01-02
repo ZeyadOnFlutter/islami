@@ -113,11 +113,11 @@ Widget getRadio(
         isPressed1 == false
             ? Positioned(
                 bottom: 0,
-                child: Image.asset('assets/images/images/mosque.png'),
+                child: Image.asset('assets/images/mosque.png'),
               )
             : Positioned(
                 bottom: getMediaQueryHeight(-0.04, context),
-                child: Image.asset('assets/images/images/waves.png'),
+                child: Image.asset('assets/images/waves.png'),
               ),
         Positioned(
           bottom: getMediaQueryHeight(0.02, context),

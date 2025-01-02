@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
       routes: {
-        SplashScreen.routeName: (_) => SplashScreen(),
-        SliderScreen.routeName: (_) => SliderScreen(),
-        Homescreen.routeName: (_) => Homescreen(),
+        SplashScreen.routeName: (_) => const SplashScreen(),
+        SliderScreen.routeName: (_) => const SliderScreen(),
+        Homescreen.routeName: (_) => const Homescreen(),
         SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
       },
       initialRoute: Homescreen.routeName,

@@ -10,7 +10,7 @@ class SuraItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 7),
+      padding: const EdgeInsets.symmetric(vertical: 7),
       child: InkWell(
         onTap: () {
           Navigator.pushNamed(
@@ -26,7 +26,7 @@ class SuraItem extends StatelessWidget {
             Container(
               width: getMediaQueryHeight(0.060324825986078885, context),
               height: getMediaQueryHeight(0.060324825986078885, context),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/suranum.png'),
                 ),
@@ -70,7 +70,7 @@ class SuraItem extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               sura.arabicName,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(

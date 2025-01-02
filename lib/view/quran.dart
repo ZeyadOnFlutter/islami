@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami/model/app_theme.dart';
 import 'package:islami/model/sura.dart';
@@ -363,10 +364,8 @@ class _QuranState extends State<Quran> {
     '5',
     '6'
   ];
-  List<int> searchlist = List.generate(
-    114,
-    (index) => index,
-  );
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -384,8 +383,13 @@ class _QuranState extends State<Quran> {
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: AppTheme.white,
                 ),
+
             onChanged: (query) => onSearchSura(query),
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(30),
+            ],
             decoration: InputDecoration(
+
               hintText: 'Sura Name',
               hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: AppTheme.white,
@@ -418,7 +422,7 @@ class _QuranState extends State<Quran> {
             height: getMediaQueryHeight(0.02320185614849188, context),
           ),
           const Visibility(
-            visible: false,
+            visible: true,
             child: MostRecentlySection(),
           ),
           Text(
@@ -429,46 +433,47 @@ class _QuranState extends State<Quran> {
           ),
           Expanded(
             child: ListView.separated(
-              // padding: EdgeInsets.zero,
-              itemCount: searchlist.length,
-              itemBuilder: (context, index) {
-                return searchlist.contains(index)
-                    ? SuraItem(
-                        sura: Sura(
-                          arabicName: arabicAuranSuras[index],
-                          englishName: englishQuranSurahs[index],
-                          verses: ayaNumber[index],
-                          num: index + 1,
-                        ),
-                      )
-                    : const SizedBox();
-              },
-              separatorBuilder: (context, index) {
-                return searchlist.contains(index)
-                    ? Divider(
-                        indent: getMediaQueryWidth(0.11, context),
-                        endIndent: getMediaQueryWidth(0.11, context),
-                        color: AppTheme.white,
-                      )
-                    : const SizedBox();
-              },
+              padding: EdgeInsets.zero,
+              itemCount: englishQuranSurahs.length,
+              itemBuilder: (context, index) => searchlist.contains(index)
+                  ? SuraItem(
+                      sura: Sura(
+                        arabicName: arabicAuranSuras[index],
+                        englishName: englishQuranSurahs[index],
+                        verses: ayaNumber[index],
+                        num: index + 1,
+                      ),
+                    )
+                  : const SizedBox(),
+              separatorBuilder: (context, index) => searchlist.contains(index)
+                  ? Divider(
+                      indent: getMediaQueryWidth(0.11, context),
+                      endIndent: getMediaQueryWidth(0.11, context),
+                      color: AppTheme.white,
+                    )
+                  : const SizedBox(),
             ),
           )
         ],
       ),
     );
   }
-
+  List<int> searchlist = List.generate(
+    114,
+        (index) => index,
+  );
   void onSearchSura(String query) {
     searchlist.clear();
-    setState(() {});
+    query = query.replaceAll(RegExp(r'[^\w\s]'), '').toLowerCase();
     for (int i = 0; i < englishQuranSurahs.length; i++) {
-      if (arabicAuranSuras[i].contains(query) ||
-          englishQuranSurahs[i].toLowerCase().contains(query.toLowerCase())) {
+      if ( arabicAuranSuras[i].contains(query) ||
+          englishQuranSurahs[i].replaceAll(RegExp(r'[^\w\s]'), '').toLowerCase().contains(query)) {
         searchlist.add(i);
+
       }
     }
     print(searchlist);
     print(searchlist.length);
+    setState(() {});
   }
 }

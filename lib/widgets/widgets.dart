@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islami/view/slidername.dart';
+import 'package:islami/view/slider/slidername.dart';
 import 'package:islami/widgets/functions.dart';
 
 Widget getRadioType(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islami/view/hadith.dart';
-import 'package:islami/view/islami_radio.dart';
-import 'package:islami/view/quran.dart';
-import 'package:islami/view/sebha.dart';
-import 'package:islami/view/time.dart';
+import 'package:islami/view/hadith/hadith.dart';
+import 'package:islami/view/radio/islami_radio.dart';
+import 'package:islami/view/quran/quran.dart';
+import 'package:islami/view/sebha/sebha.dart';
+import 'package:islami/view/time/time.dart';
 import 'package:islami/widgets/functions.dart';
 import 'package:islami/widgets/widgets.dart';
 
@@ -34,6 +34,7 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.white,

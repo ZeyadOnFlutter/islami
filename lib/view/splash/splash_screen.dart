@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/view/slider_screen.dart';
+import 'package:islami/view/slider/slider_screen.dart';
 import 'package:islami/widgets/functions.dart';
 
 class SplashScreen extends StatefulWidget {

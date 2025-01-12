@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/widgets/radio_name.dart';
+import 'package:islami/widgets/radio_item/radio_name.dart';
 import 'package:islami/widgets/functions.dart';
 import 'package:islami/widgets/widgets.dart';
 

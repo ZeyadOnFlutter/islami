@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/model/app_theme.dart';
-import 'package:islami/view/homescreen.dart';
-import 'package:islami/view/slider_screen.dart';
-import 'package:islami/view/splash_screen.dart';
-import 'package:islami/view/sura_details_screen.dart';
+import 'package:islami/model/sura_service.dart';
+import 'package:islami/view/hadith/hadith_details_screen.dart';
+import 'package:islami/view/home/homescreen.dart';
+import 'package:islami/view/slider/slider_screen.dart';
+import 'package:islami/view/splash/splash_screen.dart';
+import 'package:islami/view/quran/sura_details_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SuraService.getMostRecentlyList();
+  runApp(
+    ScreenUtilInit(
+      designSize: Size(430, 932),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,8 +36,9 @@ class MyApp extends StatelessWidget {
         SliderScreen.routeName: (_) => const SliderScreen(),
         Homescreen.routeName: (_) => const Homescreen(),
         SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
+        HadithDetailsScreen.routeName: (_) => HadithDetailsScreen(),
       },
-      initialRoute: Homescreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }

@@ -97,8 +97,8 @@ class _QuranState extends State<Quran> {
                   Text(
                     'Suras List',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: AppTheme.white,
-                    ),
+                          color: AppTheme.white,
+                        ),
                   ),
                   ListView.separated(
                     shrinkWrap: true,

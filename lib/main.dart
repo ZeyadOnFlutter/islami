@@ -26,32 +26,36 @@ Future<void> main() async {
             create: (context) => ReciterProvider(),
           ),
         ],
-        child: const MyApp(),
+        child: const Islami(),
       ),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Islami extends StatelessWidget {
+  const Islami({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Islami',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-      routes: {
-        SplashScreen.routeName: (_) => const SplashScreen(),
-        SliderScreen.routeName: (_) => const SliderScreen(),
-        Homescreen.routeName: (_) => const Homescreen(),
-        SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
-        HadithDetailsScreen.routeName: (_) => HadithDetailsScreen(),
-      },
-      initialRoute: SplashScreen.routeName,
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Islami',
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.light,
+        routes: {
+          SplashScreen.routeName: (_) => const SplashScreen(),
+          SliderScreen.routeName: (_) => const SliderScreen(),
+          Homescreen.routeName: (_) => const Homescreen(),
+          SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
+          HadithDetailsScreen.routeName: (_) => HadithDetailsScreen(),
+        },
+        initialRoute: SplashScreen.routeName,
+      ),
     );
   }
 }

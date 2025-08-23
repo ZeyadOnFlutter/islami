@@ -1,16 +1,28 @@
-# islami
+## 📿 Islami – Islamic App
+```markdown
+# 📿 Islami App
 
-A new Flutter project.
+A Flutter-based **Islamic application** providing Quran recitations, prayer times, Hadith browsing, and live radio streaming.
 
-## Getting Started
+## 🚀 Features
+- 📖 Quran reader with Surah navigation
+- 🕌 Prayer times via real-time API
+- 📜 Hadith browser
+- 📻 Islamic radio & reciters screen
+- 🔄 Recent Surahs with SharedPreferences
+- 🔍 Search functionality for Surahs & Hadith
+- 🎶 Audio playback using AudioPlayers
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tech Stack
+- Flutter, Dart
+- Provider (State Management)
+- SharedPreferences
+- REST API
+- AudioPlayers
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️ Installation
+```bash
+git clone https://github.com/codingking02/islami.git
+cd islami
+flutter pub get
+flutter run

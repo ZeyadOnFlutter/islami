@@ -1,9 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/model/app_theme.dart';
 import 'package:islami/model/azkar_model.dart';
-import 'package:islami/view/time/azkar_data.dart';
 import 'package:islami/widgets/functions.dart';
 import 'package:islami/widgets/time_items/azkar_details_header.dart';
 import 'package:islami/widgets/time_items/azkar_details_text.dart';

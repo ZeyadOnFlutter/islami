@@ -9,6 +9,7 @@ import 'package:islami/view/home/homescreen.dart';
 import 'package:islami/view/slider/slider_screen.dart';
 import 'package:islami/view/splash/splash_screen.dart';
 import 'package:islami/view/quran/sura_details_screen.dart';
+import 'package:islami/view/time/azkar_details_screen.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -35,7 +36,6 @@ Future<void> main() async {
 class Islami extends StatelessWidget {
   const Islami({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -52,7 +52,8 @@ class Islami extends StatelessWidget {
           SliderScreen.routeName: (_) => const SliderScreen(),
           Homescreen.routeName: (_) => const Homescreen(),
           SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
-          HadithDetailsScreen.routeName: (_) => HadithDetailsScreen(),
+          HadithDetailsScreen.routeName: (_) => const HadithDetailsScreen(),
+          AzkarDetailsScreen.routeName: (_) => const AzkarDetailsScreen(),
         },
         initialRoute: SplashScreen.routeName,
       ),

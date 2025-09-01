@@ -22,7 +22,7 @@ class _SliderScreenState extends State<SliderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF202020),
+      backgroundColor: const Color(0xFF202020),
       body: SizedBox(
         width: double.infinity,
         child: Column(
@@ -52,14 +52,14 @@ class _SliderScreenState extends State<SliderScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: getMediaQueryWidth(0.025, context),
-                vertical: getMediaQueryHeight(0.01, context),
+                horizontal: getMediaQueryWidth(0.05, context),
+                vertical: getMediaQueryHeight(0.03, context),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   currentindex == 0
-                      ? Text(
+                      ? const Text(
                           'Back',
                           style: TextStyle(
                             fontFamily: 'jannalt',
@@ -72,12 +72,12 @@ class _SliderScreenState extends State<SliderScreen> {
                             currentindex--;
                             _pageController.animateToPage(
                               currentindex,
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               curve: Curves.easeInOut,
                             );
                             setState(() {});
                           },
-                          child: Text(
+                          child: const Text(
                             'Back',
                             style: TextStyle(
                               fontFamily: 'jannalt',
@@ -93,13 +93,13 @@ class _SliderScreenState extends State<SliderScreen> {
                       dotDecoration: DotDecoration(
                         width: 7,
                         height: 7,
-                        color: Color(0xFF707070),
+                        color: const Color(0xFF707070),
                         borderRadius: BorderRadius.circular(100),
                       ),
                       activeDotDecoration: DotDecoration(
                         width: 18,
                         height: 7,
-                        color: Color(0xFFFFD482),
+                        color: const Color(0xFFFFD482),
                         borderRadius: BorderRadius.circular(100),
                       ),
                     ),
@@ -110,12 +110,12 @@ class _SliderScreenState extends State<SliderScreen> {
                             currentindex++;
                             _pageController.animateToPage(
                               currentindex,
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               curve: Curves.easeInOut,
                             );
                             setState(() {});
                           },
-                          child: Text(
+                          child: const Text(
                             'Next',
                             style: TextStyle(
                               fontFamily: 'jannalt',
@@ -131,7 +131,7 @@ class _SliderScreenState extends State<SliderScreen> {
                               Homescreen.routeName,
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Finish',
                             style: TextStyle(
                               fontFamily: 'jannalt',
@@ -142,7 +142,7 @@ class _SliderScreenState extends State<SliderScreen> {
                         ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

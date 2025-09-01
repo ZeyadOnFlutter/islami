@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:islami/model/radio/radio.dart';
 import 'package:islami/model/recitres/reciter.dart';
-import 'package:islami/provider/radio_provider.dart';
 import 'package:islami/provider/reciter_provider.dart';
 import 'package:islami/widgets/functions.dart';
-import 'package:islami/widgets/radio_item/radio_name.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ReciterItem extends StatefulWidget {
   ReciterItem({
     required this.reciter,

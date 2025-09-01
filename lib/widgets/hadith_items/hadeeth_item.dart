@@ -6,6 +6,7 @@ import 'package:islami/model/hadith.dart';
 import 'package:islami/view/hadith/hadith_details_screen.dart';
 import 'package:islami/widgets/functions.dart';
 
+// ignore: must_be_immutable
 class HadeethItem extends StatefulWidget {
   HadeethItem({
     required this.index,

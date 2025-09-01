@@ -1,55 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami/model/app_theme.dart';
+import 'package:islami/widgets/time_items/azakr_section.dart';
+import 'package:islami/widgets/time_items/azkar_text.dart';
+import 'package:islami/widgets/time_items/prayer_times_section.dart';
 
-class Time extends StatelessWidget {
+class Time extends StatefulWidget {
   const Time({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        children: [
-          ClipPath(
-            clipper: MyCustomClipper(),
-            child: Container(
-              width: double.infinity,
-              height: 301.h,
-              decoration: BoxDecoration(
-                color: AppTheme.primary,
-                borderRadius: BorderRadius.circular(30.r),
-              ),
-              child: Column(
-                children: [],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  State<Time> createState() => _TimeState();
 }
 
-class MyCustomClipper extends CustomClipper<Path> {
+class _TimeState extends State<Time> {
   @override
-  Path getClip(Size size) {
-    Path path = Path();
-
-    // Start from top-left
-    path.moveTo(0, size.height * 0.2);
-
-    // First Curve (Top Left)
-    
-
-    // Draw the rest of the rectangle
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-
-    return path;
+  void initState() {
+    super.initState();
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+  Widget build(BuildContext context) {
+    final ValueNotifier<int?> selectedIndex = ValueNotifier(0);
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        PrayerTimesSection(selectedIndex: selectedIndex),
+        SizedBox(height: 20.h),
+        const AzkarText(),
+        SizedBox(height: 5.h),
+        const AzakrSection(),
+      ],
+    );
+  }
 }

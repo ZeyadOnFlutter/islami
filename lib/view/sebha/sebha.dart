@@ -12,12 +12,7 @@ class Sebha extends StatefulWidget {
 
 class _SebhaState extends State<Sebha> {
   int counter = 0;
-  List<String> azkar = [
-    'سبحان الله',
-    'الحمد لله',
-    'الله اكبر',
-    'لاإله إلا الله'
-  ];
+  List<String> azkar = ['سبحان الله', 'الحمد لله', 'الله اكبر', 'لاإله إلا الله'];
   int azkarindex = 0;
   double rotationangle = 0;
 
@@ -44,7 +39,7 @@ class _SebhaState extends State<Sebha> {
         SizedBox(
           height: getMediaQueryHeight(0.018561484918793503, context),
         ),
-        Text(
+        const Text(
           'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
           style: TextStyle(
             fontFamily: 'jannalt',
@@ -63,19 +58,17 @@ class _SebhaState extends State<Sebha> {
             Positioned(
               top: getMediaQueryHeight(-0.09, context),
               child: Padding(
-                padding:
-                    EdgeInsets.only(left: getMediaQueryWidth(0.1, context)),
+                padding: EdgeInsets.only(left: getMediaQueryWidth(0.1, context)),
                 child: Image.asset('assets/images/sebhahead.png'),
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getMediaQueryWidth(0.03, context)),
+              padding: EdgeInsets.symmetric(horizontal: getMediaQueryWidth(0.03, context)),
               child: InkWell(
                 onTap: onPressedSebha,
                 child: AnimatedRotation(
                   alignment: Alignment.center,
-                  duration: Duration(milliseconds: 100),
+                  duration: const Duration(milliseconds: 100),
                   turns: rotationangle,
                   child: Image.asset(
                     'assets/images/sebhabody.png',
@@ -88,7 +81,7 @@ class _SebhaState extends State<Sebha> {
               children: [
                 Text(
                   azkar[azkarindex],
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 36,
                     fontFamily: 'jannalt',
                     fontWeight: FontWeight.w700,
@@ -100,7 +93,7 @@ class _SebhaState extends State<Sebha> {
                 ),
                 Text(
                   counter.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 36,
                     fontFamily: 'jannalt',
                     fontWeight: FontWeight.w700,

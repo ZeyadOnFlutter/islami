@@ -4,8 +4,8 @@ import 'package:islami/model/sura.dart';
 import 'package:islami/widgets/functions.dart';
 
 class SuraItem extends StatefulWidget {
-  SuraItem({required this.sura, super.key});
-  Sura sura;
+  const SuraItem({required this.sura, super.key});
+  final Sura sura;
 
   @override
   State<SuraItem> createState() => _SuraItemState();

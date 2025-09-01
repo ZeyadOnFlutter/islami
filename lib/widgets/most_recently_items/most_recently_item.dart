@@ -4,6 +4,7 @@ import 'package:islami/model/sura.dart';
 import 'package:islami/view/quran/sura_details_screen.dart';
 import 'package:islami/widgets/functions.dart';
 
+// ignore: must_be_immutable
 class MostRecentlyItem extends StatelessWidget {
   MostRecentlyItem({required this.sura, super.key});
   Sura sura;

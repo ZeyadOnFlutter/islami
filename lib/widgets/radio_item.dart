@@ -5,6 +5,7 @@ import 'package:islami/provider/radio_provider.dart';
 import 'package:islami/widgets/functions.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class RadioItem extends StatefulWidget {
   RadioItem({
     required this.radios,
@@ -84,7 +85,7 @@ class _RadioItemState extends State<RadioItem> {
                     onTap: () {
                       radioprovider.stop();
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.stop,
                       size: 40,
                     ),

@@ -60,7 +60,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
-                    'assets/headers/gold_header_left.png',
+                    'assets/images/gold_header_left.png',
                   ),
                   Text(
                     sura.arabicName,
@@ -72,7 +72,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                         ),
                   ),
                   Image.asset(
-                    'assets/headers/gold_header_right.png',
+                    'assets/images/gold_header_right.png',
                   ),
                 ],
               ),

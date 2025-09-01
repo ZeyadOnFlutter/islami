@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami/view/slider/slidername.dart';
 import 'package:islami/widgets/functions.dart';
 
@@ -86,7 +85,7 @@ Widget getSliderItem(String path, BuildContext context, int index) {
         ),
         Text(
           sliderHeaders[index],
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'jannalt',
             color: Color(0xFFE2BE7F),
             fontSize: 24,
@@ -97,7 +96,7 @@ Widget getSliderItem(String path, BuildContext context, int index) {
         ),
         Text(
           sliderInfo[index],
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'jannalt',
             color: Color(0xFFE2BE7F),
             fontSize: 24,

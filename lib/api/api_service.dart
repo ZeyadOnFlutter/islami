@@ -1,6 +1,8 @@
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:intl/intl.dart';
 import 'package:islami/constants/api_constants.dart';
+import 'package:islami/model/prayer_time_response.dart';
 import 'package:islami/model/radio/radio_response.dart';
 import 'package:http/http.dart' as http;
 import 'package:islami/model/recitres/recitres.dart';
@@ -19,8 +21,8 @@ class ApiService {
       } else {
         throw "An Error Has Happened";
       }
-    } catch (e) {
-      throw e.toString();
+    } on HttpException catch (e) {
+      throw Exception(e.message);
     }
   }
 
@@ -32,14 +34,31 @@ class ApiService {
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
         Map<String, dynamic> json = jsonDecode(response.body);
-        print(response.body);
         return ReciterResponse.fromJson(json);
       } else {
-        print(response.body);
         throw "An Error Has Happened";
       }
-    } catch (e) {
-      throw e.toString();
+    } on HttpException catch (e) {
+      throw Exception(e.message);
+    }
+  }
+
+  Future<PrayerTimeResponse> getPrayerTimes() async {
+    try {
+      String date = DateFormat("dd-MM-yyyy").format(DateTime.now());
+      //or
+      // String formattedDate = "${date.year}-${date.month}-${date.day}";
+      http.Response response = await http.get(
+        Uri.parse("https://api.aladhan.com/v1/timingsByCity/$date?city=cairo&country=egypt"),
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        Map<String, dynamic> json = jsonDecode(response.body);
+        return PrayerTimeResponse.fromJson(json);
+      } else {
+        throw "An Error Has Happened";
+      }
+    } on HttpException catch (e) {
+      throw Exception(e.message);
     }
   }
 }

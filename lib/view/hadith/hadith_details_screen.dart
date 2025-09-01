@@ -1,14 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami/model/app_theme.dart';
 import 'package:islami/model/hadith.dart';
-import 'package:islami/model/sura.dart';
 import 'package:islami/widgets/functions.dart';
 
 class HadithDetailsScreen extends StatefulWidget {
-  HadithDetailsScreen({super.key});
+  const HadithDetailsScreen({super.key});
 
   static const routeName = '/hadith';
 
@@ -55,7 +51,7 @@ class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
-                    'assets/headers/gold_header_left.png',
+                    'assets/images/gold_header_left.png',
                   ),
                   Text(
                     hadithData.title,
@@ -67,11 +63,12 @@ class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
                         ),
                   ),
                   Image.asset(
-                    'assets/headers/gold_header_right.png',
+                    'assets/images/gold_header_right.png',
                   ),
                 ],
               ),
             ),
+            // ignore: unnecessary_null_comparison
             hadithData == null
                 ? const CircularProgressIndicator(
                     color: AppTheme.primary,
